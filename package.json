@@ -1,0 +1,7 @@
+{
+  "name": "alpenkraut",
+  "version": "0.0.0",
+  "description": "Electronmusic",
+  "main": "lib/index.js",
+  "author": "Te Standby"
+}
