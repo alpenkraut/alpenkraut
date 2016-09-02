@@ -2,6 +2,29 @@
   "name": "alpenkraut",
   "version": "0.0.0",
   "description": "Electronmusic",
-  "main": "lib/index.js",
-  "author": "Te Standby"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/probitlabs/alpenkraut.git"
+  },
+  "author": "Te Standby <testandby@gmail.com> (https://github.com/probitlabs)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/probitlabs/alpenkraut/issues"
+  },
+  "homepage": "https://github.com/probitlabs/alpenkraut#readme",
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "types": "@northbrook/commit-types"
+    }
+  },
+  "scripts": {
+    "commit": "northbrook commit",
+    "release": "northbrook release"
+  },
+  "devDependencies": {
+    "northbrook": "^2.4.0"
+  }
 }
