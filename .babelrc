@@ -4,7 +4,8 @@
     "stage-0"
   ],
   "plugins": [
-    "syntax-flow"
+    "syntax-flow",
+    "transform-runtime"
   ],
   "sourceMaps": true
 }

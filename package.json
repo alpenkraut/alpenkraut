@@ -1,27 +1,28 @@
 {
-    "name": "alpenkraut-dev",
-    "version": "0.0.0",
-    "config": {
-        "ghooks": {
-            "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
-        },
-        "validate-commit-msg": {
-            "types": "@northbrook/commit-types"
-        }
+  "name": "alpenkraut-dev",
+  "version": "0.0.0",
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
     },
-    "scripts": {
-        "commit": "northbrook commit",
-        "release": "northbrook release"
-    },
-    "devDependencies": {
-        "northbrook": "^2.4.0",
-        "babel-plugin-syntax-flow": "^6.13.0",
-        "babel-plugin-transform-runtime": "^6.15.0",
-        "babel-polyfill": "^6.13.0",
-        "babel-preset-es2015": "^6.14.0",
-        "babel-preset-stage-0": "^6.5.0",
-        "gulp": "github:gulpjs/gulp#4.0",
-        "gulp-babel": "^6.1.2"
-    },
-    "private": true
+    "validate-commit-msg": {
+      "types": "@northbrook/commit-types"
+    }
+  },
+  "scripts": {
+    "commit": "northbrook commit",
+    "release": "northbrook release"
+  },
+  "devDependencies": {
+    "babel-plugin-syntax-flow": "~6.13.0",
+    "babel-plugin-transform-runtime": "~6.15.0",
+    "babel-polyfill": "~6.13.0",
+    "babel-preset-es2015": "~6.14.0",
+    "babel-preset-stage-0": "~6.5.0",
+    "fs-promise": "~0.5.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-babel": "~6.1.2",
+    "northbrook": "~2.4.0"
+  },
+  "private": true
 }
