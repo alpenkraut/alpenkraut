@@ -20,7 +20,7 @@ async function getSubdirs(srcPath) {
 
 async function each(cb) {
     const srcPath = "src/"
-    const srcSubpaths = getSubdirs(srcPath)
+    const srcSubpaths = await getSubdirs(srcPath)
 
     const libPath = "lib/"
     const libSubdirs = srcSubpaths.map(p=> path.relative(srcPath, p))
@@ -35,7 +35,7 @@ async function each(cb) {
 }
 
 export default async function bablify() {
-    each(src=>
+    await each(src=>
         src("*.js")
                 .pipe(babel())
     )
