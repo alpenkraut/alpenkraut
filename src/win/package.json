@@ -1,0 +1,7 @@
+{
+    "name": "alpenkraut-win",
+    "version": "0.0.0",
+    "dependencies": {
+        "alpenkraut-evs": "file:../evs"
+    }
+}
