@@ -26,7 +26,10 @@ async function each(cb) {
     const libSubdirs = srcSubpaths.map(p=> path.relative(srcPath, p))
     const libSubpaths = libSubdirs.map(dir=> path.join("lib/", dir))
 
-    const pathifies = srcSubpaths.map(l=> r=> path.join(l, r))
+    //TODO `path.join` isn't right for "!*.*" expressions, find other
+    const pathifies = srcSubpaths.map(l=> r=>
+        (Array.isArray(r) ? r : [r]).map(e=> path.join(l, e))
+    )
     const srcs = pathifies.map(f=> (r, ...args)=> g.src(f(r), ...args))
     const pipes = srcs.map(f=> cb(f))
     const tasks = pipes.map((e, i)=> ()=> e.pipe(g.dest(libSubpaths[i])))
@@ -34,9 +37,15 @@ async function each(cb) {
     await g.parallel(tasks)()
 }
 
-export default async function bablify() {
+export default async function build() {
+    //dirty hack to copy other files to lib
+    await each(src=>
+        src("*.{html,json,css}")
+    )
+
+    //bablify
     await each(src=>
         src("*.js")
-                .pipe(babel())
+            .pipe(babel())
     )
 }
