@@ -13,7 +13,7 @@ async function getSubdirs(srcPath) {
     const pathify = e=> path.join(srcPath, e)
     const kids = await fs.readdir(srcPath)
     const kidsPath = kids.map(pathify)
-    const kidsStats = await kidsPath.map(e=> fs.stat(pathify(e)))::multirsv()
+    const kidsStats = await kidsPath.map(e=> fs.stat(e))::multirsv()
     const dirKids = kidsPath.filter((e, i)=> kidsStats[i].isDirectory())
     return dirKids
 }
@@ -29,7 +29,7 @@ async function each(cb) {
     const pathifies = srcSubpaths.map(l=> r=> path.join(l, r))
     const srcs = pathifies.map(f=> (r, ...args)=> g.src(f(r), ...args))
     const pipes = srcs.map(f=> cb(f))
-    const tasks = pipes.map((e, i)=> e.pipe(g.dest(libSubpaths[i])))
+    const tasks = pipes.map((e, i)=> ()=> e.pipe(g.dest(libSubpaths[i])))
 
     await g.parallel(tasks)()
 }
