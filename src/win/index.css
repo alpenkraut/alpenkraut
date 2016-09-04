@@ -1,16 +1,26 @@
 body {
     font-family: "Fira Sans";
+    margin: 0;
+    padding: 0.5em;
 }
 
 header {
     display: flex;
+    align-items: stretch;
+}
+
+h1 {
+    margin-right: 1.5em;
+}
+
+h1 img {
+    vertical-align: middle;
 }
 
 #opener {
+    flex-grow: 1;
     background-color: #222;
     color: #eee;
-    height: 5em;
-    width: 100%;
     text-align: center;
 }
 

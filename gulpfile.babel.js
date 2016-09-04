@@ -40,7 +40,7 @@ async function each(cb) {
 export default async function build() {
     //dirty hack to copy other files to lib
     await each(src=>
-        src("*.{html,json,css}")
+        src("*.{html,json,css,png}")
     )
 
     //bablify

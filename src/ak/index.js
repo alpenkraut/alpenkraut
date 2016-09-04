@@ -4,7 +4,7 @@ app.on("ready", ()=> {
     const win = new Win({
         backgroundColor: "#4c9d9d",
         icon: "icon.png",
-        height: 576,
+        height: 1024,
         width: 1024,
     })
     const contentPath = require.resolve("../win/index.html")
