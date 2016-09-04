@@ -1,6 +1,21 @@
+body {
+    font-family: "Fira Sans";
+}
+
+header {
+    display: flex;
+}
+
 #opener {
     background-color: #222;
     color: #eee;
     height: 5em;
-    width: 15em;
+    width: 100%;
+    text-align: center;
+}
+
+#drawer {
+    height: 15em;
+    width: 100%;
+    background-color: green;
 }
