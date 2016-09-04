@@ -1,3 +1,5 @@
+import fs from "fs"
+
 export function init() {
     console.log("Loaded!")
 
@@ -16,7 +18,8 @@ export function init() {
             }
             if (transfer.files.length) {
                 console.log("Files!")
-                for (let e in transfer.files) {
+                for (let e of transfer.files) {
+                    console.log("File:", e)
                     fs.readFile(e.path, "utf-8", (err, data)=> {
                         opener.innerText = data
                     })
