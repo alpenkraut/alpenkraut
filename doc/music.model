@@ -1,0 +1,13 @@
+Time < Object
+    numerator -> Nat
+    divisor -> Nat
+
+Range < Object
+    track -> Track
+    start -> Time
+    end -> Time
+
+Track < Object
+
+Object
+    name
