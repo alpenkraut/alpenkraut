@@ -2,12 +2,13 @@ Time < Object
     numerator -> Nat
     divisor -> Nat
 
-Range < Object
-    track -> Track
+Range < Mask
     start -> Time
     end -> Time
 
-Track < Object
+Track < Mask
+
+Mask < Object
 
 Object
     name
