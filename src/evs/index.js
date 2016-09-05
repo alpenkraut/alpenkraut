@@ -3,7 +3,17 @@ import fs from "fs"
 export function init() {
     console.log("Loaded!")
 
+    const drawer = document.getElementById("drawer")
+    const ctx = drawer.getContext("2d")
     const opener = document.getElementById("opener")
+
+    ctx.beginPath()
+    ctx.moveTo(50, 50)
+    ctx.lineTo(50, 100)
+    ctx.lineTo(100, 50)
+    ctx.closePath()
+    ctx.fill()
+
     Object.assign(opener, {
         ondrop: ev=> {
             console.log("Dropped!")
@@ -21,7 +31,8 @@ export function init() {
                 for (let e of transfer.files) {
                     console.log("File:", e)
                     fs.readFile(e.path, "utf-8", (err, data)=> {
-                        opener.innerText = data
+                        ctx.font = "10px 'Noto Sans'"
+                        ctx.fillText(data, 20, 20)
                     })
                 }
             }
