@@ -7,6 +7,11 @@ Range < Mask
     end -> Time
 
 Track < Mask
+    ranges -> [Range]
+
+Combination < Mask
+    summands -> [Mask]
+    subtrahends -> [Mask]
 
 Mask < Object
 

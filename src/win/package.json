@@ -2,6 +2,7 @@
     "name": "alpenkraut-win",
     "version": "0.0.0",
     "dependencies": {
+        "babel-runtime": "^6.11.6",
         "alpenkraut-evs": "file:../evs"
     }
 }

@@ -1,5 +1,32 @@
 import fs from "fs"
 
+function Box() {
+    const box = new Path2D()
+    box.rect(0, 0, 100, 100)
+    return box
+}
+
+export function draw(ctx) {
+    try {
+        const boxes = new Path2D()
+        //TODO SVGMatrix: Illegal constructor err
+        boxes.addPath(new Box(), new SVGMatrix().translate(200, 200))
+        boxes.addPath(new Box(), new SVGMatrix().translate(50, 200))
+        ctx.fill(box)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+export function resize() {
+    const [...els] = document.getElementsByClassName("flexible")
+    for (let el of els) {
+        el.width = el.clientWidth
+        el.height = el.clientHeight
+        draw(el.getContext("2d"))
+    }
+}
+
 export function init() {
     console.log("Loaded!")
 
@@ -7,12 +34,8 @@ export function init() {
     const ctx = drawer.getContext("2d")
     const opener = document.getElementById("opener")
 
-    ctx.beginPath()
-    ctx.moveTo(50, 50)
-    ctx.lineTo(50, 100)
-    ctx.lineTo(100, 50)
-    ctx.closePath()
-    ctx.fill()
+    resize()
+    window.addEventListener("resize", resize)
 
     Object.assign(opener, {
         ondrop: ev=> {
